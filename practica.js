@@ -64,9 +64,7 @@ const empleado = {
   pagas: 14,
 };
 
-let retencion,
-  netoAnual,
-  netoMensual = 0;
+let retencion, deduccion, netoAnual, netoMensual = 0;
 
 if (empleado.bruto > 34000) {
   retencion = 30;
@@ -89,7 +87,8 @@ if (retencion > 0 && empleado.hijos > 0) {
 
 console.log("Retención aplicada: " + retencion + "%");
 
-netoAnual = empleado.bruto * (retencion / 100);
+deduccion = empleado.bruto * (retencion / 100);
+netoAnual = empleado.bruto - deduccion;
 if (empleado.pagas == 14 || empleado.pagas == 12) {
   netoMensual = netoAnual / empleado.pagas;
 } else {
